@@ -8,22 +8,17 @@ END PROGRAM
 !
 subroutine power2(i)
 implicit none
-integer:: i,x,c,p
+integer:: i,x,p
 integer::products(10)
 x = 1
-c = 0
 do
    if(i<=0) exit
-   p = 1
-   if(p == 1) then
-      products(c)=x
-       c=c+1
+   p = mod(i,2)
+    if(p > 0) then
+      products(i)=x
+      write(*,*) x
    end if
    x = x*2
    i = ishft(i,-1)
-end do
-! Print the powers
-do i=1,c-1
-   write(*,*) products(i)
 end do
 end
